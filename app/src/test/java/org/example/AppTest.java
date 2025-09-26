@@ -3,12 +3,36 @@
  */
 package org.example;
 
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Assert;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
-class AppTest {
-    @Test void appHasAGreeting() {
+import java.util.List;
+
+public final class AppTest {
+    @BeforeClass
+    public static void setupTesting() {
+        List<Class<?>> classes;
+        try {
+            classes = List.of(
+                    org.junit.runner.JUnitCore.class,
+                    Class.forName("org.apache.commons.lang3.StringUtils")
+
+            );
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        StringBuilder msg = new StringBuilder("Setting up testing...\n");
+        classes.forEach(c -> msg.append("\tUsing class: ").append(c.getName()).append('\n'));
+        msg.append("Done!");
+
+        System.out.print(msg);
+    }
+
+    @Test
+    public void appCanSimulateWork() {
         App classUnderTest = new App();
-        assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+        Assert.assertTrue(classUnderTest.simulateWork().contains("Done!"));
     }
 }

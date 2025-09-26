@@ -3,12 +3,32 @@
  */
 package org.example;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
+import java.util.List;
+
+public final class App {
+    public String simulateWork() {
+        List<Class<?>> classes;
+        try {
+            classes = List.of(
+                    org.springframework.core.io.PathResource.class,
+                    org.bouncycastle.x509.X509StreamParser.class,
+                    Class.forName("org.apache.commons.lang3.StringUtils"),
+                    org.apache.avro.reflect.AvroName.class,
+                    net.minidev.json.JSONArray.class,
+                    org.apache.logging.log4j.Logger.class
+            );
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        StringBuilder msg = new StringBuilder("Running application...\n");
+        classes.forEach(c -> msg.append("\tUsing class: ").append(c.getName()).append('\n'));
+        msg.append("Done!");
+
+        return msg.toString();
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        System.out.println(new App().simulateWork());
     }
 }
