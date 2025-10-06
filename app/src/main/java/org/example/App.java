@@ -5,6 +5,11 @@ package org.example;
 
 import java.util.List;
 
+/**
+ * When run, the app simulates doing work by loading various classes from different libraries.
+ * It does not perform any real computation but demonstrates that
+ * these dependencies are available to use at runtime.
+ */
 public final class App {
     public String simulateWork() {
         List<Class<?>> classes;

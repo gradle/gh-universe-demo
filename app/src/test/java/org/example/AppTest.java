@@ -9,6 +9,10 @@ import org.junit.Test;
 
 import java.util.List;
 
+/**
+ * Testing also loads classes from test dependencies to
+ * demonstrate that these dependencies are available to use at runtime.
+ */
 public final class AppTest {
     @BeforeClass
     public static void setupTesting() {
