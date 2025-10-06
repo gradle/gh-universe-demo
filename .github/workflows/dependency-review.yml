@@ -1,8 +1,12 @@
+# See https://github.com/actions/dependency-review-action for more information
+
 name: Dependency Review
 
+# Trigger the workflow on every pull request
 on:
   pull_request:
 
+# Set permissions to read-only for contents to enhance security
 permissions:
   contents: read
 
@@ -10,6 +14,7 @@ jobs:
   dependency-review:
     runs-on: ubuntu-latest
     steps:
+      # Step names are arbitrary and will appear in the GitHub actions UI
     - name: Perform dependency review
       uses: actions/dependency-review-action@v4
       with:
