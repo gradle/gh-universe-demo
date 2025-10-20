@@ -19,6 +19,7 @@ Running application...
         Using class: org.apache.avro.reflect.AvroName
         Using class: net.minidev.json.JSONArray
         Using class: org.apache.logging.log4j.Logger
+        Using class: org.apache.commons.text.CaseUtils
 Done!
 ```
 
@@ -72,6 +73,15 @@ compileClasspath - Compile classpath for source set 'main'.
 |    |    \--- com.fasterxml.jackson:jackson-bom:2.15.3 (*)
 |    +--- org.bouncycastle:bcprov-jdk18on:1.76
 |    \--- org.xerial.snappy:snappy-java:1.1.10.5
++--- org.apache.commons:commons-text:1.4 -> 1.7
+|    \--- org.apache.commons:commons-lang3:3.9
++--- com.opencsv:opencsv:5.0
+|    +--- org.apache.commons:commons-lang3:3.9
+|    +--- org.apache.commons:commons-text:1.7 (*)
+|    +--- commons-beanutils:commons-beanutils:1.9.4
+|    |    +--- commons-logging:commons-logging:1.2
+|    |    \--- commons-collections:commons-collections:3.2.2
+|    \--- org.apache.commons:commons-collections4:4.4
 +--- org.apache.avro:avro:1.11.+ -> 1.11.3
 |    +--- com.fasterxml.jackson.core:jackson-core:2.14.2 -> 2.15.3 (*)
 |    +--- com.fasterxml.jackson.core:jackson-databind:2.14.2 -> 2.15.3 (*)
